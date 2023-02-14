@@ -21,10 +21,28 @@
       </div>
       <div id="filters">
         <span>By reasonable price</span>
-        <span>By recently released</span>
+        <button id="filter-recent">By recently released (2 weeks)</button>
+        <label for="time-select">Filter by time:</label>
+        <select id="time-select">
+          <option value="all">All</option>
+          <option value="1w">1 week</option>
+          <option value="2w">2 weeks</option>
+          <option value="1m">1 month</option>
+        </select>
         <div id="brand">
           <label for="brand-select">By brands:</label>
-          <select name="brand" id="brand-select"> </select>
+          <select name="brand" id="brand-select">
+            <option value="">All brands</option>
+            <option value="coteleparis">CoteleParis</option>
+            <option value="1083">1083</option>
+            <option value="dedicated">Dedicated</option>
+            <option value="aatise">Aatise</option>
+            <option value="adresse">Adresse</option>
+            <option value="hast">Hast</option>
+            <option value="loom">Loom</option>
+            <option value="panafrica">Panafrica</option>
+        </select>
+          
         </div>
       </div>
       <div id="sort">

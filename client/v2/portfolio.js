@@ -24,6 +24,9 @@ let currentPagination = {};
 // instantiate the selectors
 const selectShow = document.querySelector('#show-select');
 const selectPage = document.querySelector('#page-select');
+const selectBrand = document.querySelector('#brand-select');
+const filterRecentButton = document.querySelector('#filter-recent');
+const selectTime = document.querySelector('#time-select');
 const sectionProducts = document.querySelector('#products');
 const spanNbProducts = document.querySelector('#nbProducts');
 
@@ -41,12 +44,14 @@ const setCurrentProducts = ({result, meta}) => {
  * Fetch products from api
  * @param  {Number}  [page=1] - current page to fetch
  * @param  {Number}  [size=12] - size of the page
+ * @param  {String}  [brand] - brand name to filter by
+ * @param  {String}  [time] - time of release to filter by
  * @return {Object}
  */
-const fetchProducts = async (page = 1, size = 12) => {
+const fetchProducts = async (page = 1, size = 12, brand, time) => {
   try {
     const response = await fetch(
-      `https://clear-fashion-api.vercel.app?page=${page}&size=${size}`
+      `https://clear-fashion-api.vercel.app?page=${page}&size=${size}` + (brand ? `&brand=${brand}` : '') + (time ? `&time=${time}` : '')
     );
     const body = await response.json();
 
@@ -55,12 +60,14 @@ const fetchProducts = async (page = 1, size = 12) => {
       return {currentProducts, currentPagination};
     }
 
+    setCurrentProducts(body.data);
     return body.data;
   } catch (error) {
     console.error(error);
     return {currentProducts, currentPagination};
   }
 };
+
 
 /**
  * Render list of products
@@ -100,7 +107,73 @@ const renderPagination = pagination => {
 
   selectPage.innerHTML = options;
   selectPage.selectedIndex = currentPage - 1;
+
+  selectPage.addEventListener('change', async (event) => {
+    const brand = selectBrand.value.trim();
+    const products = await fetchProducts(parseInt(event.target.value), selectShow.value, brand);
+    setCurrentProducts(products);
+    render(currentProducts, currentPagination);
+  });
 };
+
+
+/**
+ * Select the brand to display
+ */
+selectBrand.addEventListener('change', async (event) => {
+  const brand = event.target.value.trim();
+  const products = await fetchProducts(1, currentPagination.size, brand);
+
+  setCurrentProducts(products);
+  render(currentProducts, currentPagination);
+});
+
+
+/**
+ * Filter products to show only recent ones (less than 2 weeks)
+ */
+const filterRecent = async () => {
+  const today = new Date();
+  const twoWeeksAgo = new Date();
+  twoWeeksAgo.setDate(today.getDate() - 14);
+  
+  const filteredProducts = currentProducts.filter(product => {
+    const productDate = new Date(product.date);
+    return productDate > twoWeeksAgo;
+  });
+  
+  render(filteredProducts, currentPagination);
+};
+
+filterRecentButton.addEventListener('click', filterRecent);
+
+/**
+ * Select the time of release to display
+ */
+selectTime.addEventListener('change', async (event) => {
+  let time;
+  switch (event.target.value) {
+    case '1w':
+      time = '1w';
+      break;
+    case '2w':
+      time = '2w';
+      break;
+    case '1m':
+      time = '1m';
+      break;
+    default:
+      time = null;
+      break;
+  }
+
+  const brand = selectBrand.value.trim();
+  const products = await fetchProducts(1, currentPagination.size, brand, time);
+
+  setCurrentProducts(products);
+  render(currentProducts, currentPagination);
+});
+
 
 /**
  * Render page selector
@@ -113,10 +186,16 @@ const renderIndicators = pagination => {
 };
 
 const render = (products, pagination) => {
-  renderProducts(products);
+  // Filtrer les produits selon la marque sélectionnée
+  const brand = selectBrand.value.trim();
+  const filteredProducts = brand ? products.filter(product => product.brand === brand) : products;
+
+  renderProducts(filteredProducts);
   renderPagination(pagination);
   renderIndicators(pagination);
 };
+
+
 
 /**
  * Declaration of all Listeners
