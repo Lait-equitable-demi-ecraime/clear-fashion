@@ -38,7 +38,7 @@ module.exports.scrape = async url => {
     const response = await fetch(url);
 
     if (response.ok) {
-      const body = await response.text(); s
+      const body = await response.text();
       return parse(body);
     }
 

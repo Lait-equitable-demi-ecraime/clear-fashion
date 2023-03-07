@@ -8,7 +8,7 @@ function writeToFile(filename, data) {
   fs.writeFileSync(filename, JSON.stringify(data, null, 2));
 }
 
-async function sandbox (eshop = 'montlimart') {
+async function sandbox (eshop = 'circlesportswear') {
   try {
     console.log(`🕵️‍♀️  browsing ${eshop} eshop`);
 
@@ -40,13 +40,9 @@ async function sandbox (eshop = 'montlimart') {
         break;
 
       case 'circlesportswear':
-        const circlesportswearLinks = require('./circlesportswear_links.json');
         const circlesportswearProducts = [];
-
-        for (let link of circlesportswearLinks) {
-          const data = await circlesportswear.scrape(link);
-          circlesportswearProducts.push(...data);
-        }
+        const data = await circlesportswear.scrape('https://shop.circlesportswear.com/collections/all');
+        circlesportswearProducts.push(...data);
 
         writeToFile('data_circlesportswear.json', circlesportswearProducts);
         console.log(circlesportswearProducts);
