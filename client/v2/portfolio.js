@@ -38,6 +38,7 @@ const spanNbProducts = document.querySelector('#nbProducts');
 const setCurrentProducts = ({result, meta}) => {
   currentProducts = result;
   currentPagination = meta;
+  
 };
 
 /**
