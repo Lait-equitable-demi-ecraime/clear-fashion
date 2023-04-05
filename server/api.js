@@ -18,6 +18,9 @@ app.get('/', (request, response) => {
   response.send({'ack': true});
 });
 
-app.listen(PORT);
+
+
+app.listen(process.env.PORT || 3000, () => console.log(`Server started on port ${process.env.PORT || 3000}`));
+
 
 console.log(`📡 Running on port ${PORT}`);
