@@ -13,7 +13,7 @@ body {
     
     .header {
         width: 100%;
-        border: 2px solid #233f49;
+        border: 2px solid rgba(192, 216, 229, 0.5);
         padding-bottom: 20px;
         background-color: #FFFFFF;
         height: 80px;
@@ -169,7 +169,7 @@ body {
         font-size: 12px;
     }
     h1 {
-    color: red;
+    color: darkblue;
     font-size: 36px;
     text-align: center;
     text-transform: uppercase;
