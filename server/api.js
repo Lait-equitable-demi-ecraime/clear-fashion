@@ -2,7 +2,7 @@ const cors = require('cors');
 const express = require('express');
 const helmet = require('helmet');
 const MongoClient = require('mongodb').MongoClient;
-
+const path = require('C:/Users/charl/Documents/A4 ESILV/Web application/clear-fashion/server');
 const PORT = 8092;
 const MONGODB_URI = 'mongodb+srv://charles:charles1@clearfashion.ps7zqbe.mongodb.net/?retryWrites=true&w=majority'; // replace this with your MongoDB Atlas URI
 const DB_NAME = 'clearfashion'; // replace this with your database name
