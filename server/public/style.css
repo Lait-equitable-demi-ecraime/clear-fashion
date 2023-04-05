@@ -93,7 +93,7 @@ body {
     }
     
     #indicators {
-        background-color: #233f49;
+        background-color: rgba(192, 216, 229, 0.5);
         width: 80%;
         margin-left: auto;
         margin-right: auto;
@@ -131,8 +131,8 @@ body {
     }
     
     nav a:hover {
-        color: #233f49;
-        border-bottom: 2px solid #233f49;
+        color: rgba(192, 216, 229, 0.5);
+        border-bottom: 2px solid rgba(192, 216, 229, 0.5);
     }
     
     .sous {
