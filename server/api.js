@@ -11,8 +11,8 @@ const app = express();
 
 module.exports = app;
 
-// Serve static files from the public directory
-app.use(express.static(path.join(__dirname, '/clear-fashion/client/v2')));
+// Serve static files from the v2 directory
+app.use(express.static(path.join(__dirname, '../client/v2')));
 
 app.use(require('body-parser').json());
 app.use(cors());
