@@ -1,5 +1,5 @@
 body {
-        font-family: Arial, sans-serif;
+        font-family: Helvetica, sans-serif;
         background-color: rgba(192, 216, 229, 0.5); /* light blue */
     }
     
@@ -13,7 +13,7 @@ body {
     
     .header {
         width: 100%;
-        border: 2px solid rgba(192, 216, 229, 0.5);
+        border: 2px solid #233f49;
         padding-bottom: 20px;
         background-color: #FFFFFF;
         height: 80px;
@@ -93,7 +93,7 @@ body {
     }
     
     #indicators {
-        background-color: rgba(192, 216, 229, 0.5);
+        background-color: #233f49;
         width: 80%;
         margin-left: auto;
         margin-right: auto;
@@ -131,8 +131,8 @@ body {
     }
     
     nav a:hover {
-        color: rgba(192, 216, 229, 0.5);
-        border-bottom: 2px solid rgba(192, 216, 229, 0.5);
+        color: #233f49;
+        border-bottom: 2px solid #233f49;
     }
     
     .sous {
@@ -169,7 +169,7 @@ body {
         font-size: 12px;
     }
     h1 {
-    color: darkblue;
+    color: rgb(24, 48, 99);
     font-size: 36px;
     text-align: center;
     text-transform: uppercase;

@@ -12,7 +12,7 @@ const app = express();
 module.exports = app;
 
 // Serve static files from the v2 directory
-app.use(express.static(path.join(__dirname, '../client/v2')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('body-parser').json());
 app.use(cors());
