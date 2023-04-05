@@ -42,6 +42,20 @@ async function InsertProducts() {
 
 InsertProducts();
 
+async function emptyDatabase() {
+    const { client, collection } = await ConnectMongoDb();
+    
+    try {
+        await collection.deleteMany({});
+        console.log('Database emptied successfully.');
+    } catch (error) {
+        console.error('Error emptying database:', error);
+    } finally {
+        await client.close();
+    }
+}
+
+
 
 async function ByBrand() {
     await ConnectMongoDb();
