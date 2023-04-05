@@ -4,8 +4,8 @@ const helmet = require('helmet');
 const MongoClient = require('mongodb').MongoClient;
 
 const PORT = 8092;
-const MONGODB_URI = 'mongodb+srv://charles:charles1@clear-fashion.vvfza2l.mongodb.net/?retryWrites=true&w=majority'; // replace this with your MongoDB Atlas URI
-const DB_NAME = 'clear-fashion'; // replace this with your database name
+const MONGODB_URI = 'mongodb+srv://charles:charles1@clearfashion.ps7zqbe.mongodb.net/?retryWrites=true&w=majority'; // replace this with your MongoDB Atlas URI
+const DB_NAME = 'clearfashion'; // replace this with your database name
 
 const app = express();
 

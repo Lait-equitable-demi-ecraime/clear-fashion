@@ -2,8 +2,8 @@ const { MongoClient } = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 const fs = require('fs');
 
-const MONGODB_URI = 'mongodb+srv://charles:charles1@clear-fashion.vvfza2l.mongodb.net/?retryWrites=true&w=majority';
-const MONGODB_DB_NAME = 'clear-fashion';
+const MONGODB_URI = 'mongodb+srv://charles:charles1@clearfashion.ps7zqbe.mongodb.net/?retryWrites=true&w=majority';
+const MONGODB_DB_NAME = 'clearfashion';
 const MONGODB_COLLECTION = 'products';
 
 async function ConnectMongoDb() {
