@@ -16,10 +16,6 @@ Search for available brands list
 let currentProducts = [];
 let currentPagination = {};
 
-// dates
-var current_time = new Date()
-var fortnight_before = new Date(Date.now() - 12096e5)
-
 // instantiate the selectors
 const selectShow = document.querySelector('#show-select');
 const selectPage = document.querySelector('#page-select');
@@ -27,14 +23,12 @@ const sectionProducts = document.querySelector('#products');
 const spanNbProducts = document.querySelector('#nbProducts');
 const selectBrand = document.querySelector('#brand-select');
 const reasonablePrice = document.querySelector('#filters > span:nth-of-type(1)');
-const recentlyReleased = document.querySelector('#filters > span:nth-of-type(2)');
 const sortProduct = document.querySelector('#sort-select');
 const spanNbNewProducts = document.querySelector('#nbNewProducts');
 const spanP50 = document.querySelector('#p50');
 const spanP90 = document.querySelector('#p90');
 const spanP95 = document.querySelector('#p95');
 const spanNbBrands = document.querySelector('#nbBrands');
-const spanLastDate = document.querySelector('#lastDate');
 
 /**
  * Set global value
