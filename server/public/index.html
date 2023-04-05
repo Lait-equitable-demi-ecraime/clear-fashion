@@ -1,12 +1,73 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ClearFashion Products</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>👕 Clear Fahion | Environmentally & human-friendly clothes</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>ClearFashion Products</h1>
-        <ul id="products-list"></ul>
-        <script src="app.js"></script>
+        <header>
+            <h1>Clear fashion - What's the story behind each item of clothing you buy ?</h1>
+        </header>
+        <section id="filters">
+            <span id="reasonablePrice">reasonable price</span>
+            <span id="recentlyReleased">recently released</span>
+            <label for="show-select">show</label>
+            <select id="show-select">
+                <option value="12">12</option>
+                <option value="24">24</option>
+                <option value="48">48</option>
+            </select>
+            <label for="sort-select">sort</label>
+            <select id="sort-select">
+                <option value="name">name</option>
+                <option value="price">price</option>
+                <option value="createdAt">release date</option>
+            </select>
+            <label for="brand-select">brand</label>
+            <select id="brand-select"></select>
+            <label for="page-select">page</label>
+            <select id="page-select"></select>
+        </section>
+        <section id="products"></section>
+
+        <nav id="pagination">
+            <label for="page-select">page</label>
+            <select id="page-select"></select>
+        </nav>
+
+        <div id="stats">
+            <p>
+                <span id="nbProducts"></span>
+                products
+            </p>
+            <p>
+                <span id="nbNewProducts"></span>
+                new products
+            </p>
+            <p>
+                <span id="p50"></span>
+                50% of products cost less than
+            </p>
+            <p>
+                <span id="p90"></span>
+                90% of products cost less than
+            </p>
+            <p>
+                <span id="p95"></span>
+                95% of products cost less than
+            </p>
+            <p>
+                <span id="nbBrands"></span>
+                brands available
+            </p>
+            <p>
+                <span id="lastDate"></span>
+                last update
+            </p>
+        </div>
+        </section>
+        <section id="products"></section>
+        <script type="text/javascript" charset="UTF-8" src="portfolio.js"></script>
     </body>
 </html>
